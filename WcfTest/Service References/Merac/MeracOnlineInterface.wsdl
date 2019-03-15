@@ -1,0 +1,2492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://merac.co.uk/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://merac.co.uk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://merac.co.uk/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestAuthorisation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestAuthorisationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestAuthorisationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExtractSiteData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DBVersion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseRetail" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseMembership" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseAdoptions" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExtractSiteDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExtractSiteDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelUnpaidReservations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelUnpaidReservationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelUnpaidReservationsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtRequestedSessions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionAvailabilityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtRequestedSessions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionCalendarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateSalesItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAvalability" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="HideZeroAvailability" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResourceType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateSalesItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTemplateSalesItemsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateSalesItemsSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateSalesItemsSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTemplateSalesItemsSessionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceSessionLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceSessionLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceSessionLookupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDateTime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeatingAvailabilityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingTicketKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingTicketKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeatingTicketKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BlockID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SeatID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeatingTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeatingTicketsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsSeatTaken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BlockID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SeatID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsSeatTakenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsSeatTakenResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReserveSessionSeat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BlockID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SeatID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TicketKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReserveSessionSeatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReserveSessionSeatResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnreserveSessionSeat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BlockID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SeatID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TicketKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnreserveSessionSeatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnreserveSessionSeatResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBookings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtRequestedBookings">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBookingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveBookingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeBookingStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtRequestedBookings">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeBookingStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeBookingStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSaveMembers">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveMemberResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMemberIDs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intWebBookingRef" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelMemberResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipSchemes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipSchemesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMembershipSchemesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipRenewalAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccountRecordNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipRenewalAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMembershipRenewalAddressResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipRenewalCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccountRecordNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerSequence" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipRenewalCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMembershipRenewalCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipsForRenewal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MembershipNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AllowDiscXDaysBeforeExpiry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AllowDiscXDaysAfterExpiry" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembershipsForRenewalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMembershipsForRenewalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidMembership">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidMembershipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsValidMembershipResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardbyDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Outlet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dept" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SubDept" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardbyDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDashboardbyDeptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardbyAnz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Outlet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dept" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SubDept" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardbyAnzResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDashboardbyAnzResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardCompact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Outlet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dept" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SubDept" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DayByDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDashboardCompactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDashboardCompactResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BasicInternetPrices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ValidFrom" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ResourceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BasicInternetPricesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BasicInternetPricesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOrderStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtChangeOrderStatus">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOrderStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeOrderStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberExpiryReset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtMemberExpiryReset">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberExpiryResetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberExpiryResetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOrderItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSaveOrderItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOrderItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pBranchID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBarcodeIDs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStockAvailabilityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetModifiedImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentModifiedDateUTC" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetModifiedImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetModifiedImageResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplyTicketRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtTickets">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplyTicketRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplyTicketRulesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCalendarDatesByTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HideFullDates" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TodayDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCalendarDatesByTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCalendarDatesByTemplateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookingStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookingRefs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookingStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookingStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalysisCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalysisCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalysisCodesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketsBySessionHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShdRecNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnlCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketsBySessionHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketsBySessionHeaderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdditionalSessionLegs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShdRecno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SessionType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreselectShdRecno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdditionalSessionLegsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdditionalSessionLegsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBranch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAccRecNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCusSeq" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMembNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAccNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSuffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtmDOB" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="strHomeTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWorkTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTown" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCounty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPostcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnAllowEmail" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPhotoFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtmPhotoDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCountry" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAccType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBranch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAccRecNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCusSeq" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMembNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAccNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSuffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtmDOB" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="strHomeTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWorkTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTown" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCounty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPostcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnAllowEmail" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPhotoFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtmPhotoDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCountry" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAccType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccRecNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CusSeq" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CusMembNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CusCardNum" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateMemberCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BkrResNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckBackXDays" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateMemberCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateMemberCardResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniqueVoucherReserve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VoucherCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniqueVoucherReserveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueVoucherReserveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniqueVoucherUnreserve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VoucherCodeList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniqueVoucherUnreserveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueVoucherUnreserveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MOIVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MOIVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MOIVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InternetVoucherAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtVoucherAdmin">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InternetVoucherAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InternetVoucherAdminResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthorisationSoapIn">
+    <wsdl:part name="parameters" element="tns:TestAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthorisationSoapOut">
+    <wsdl:part name="parameters" element="tns:TestAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExtractSiteDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ExtractSiteData" />
+  </wsdl:message>
+  <wsdl:message name="ExtractSiteDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ExtractSiteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelUnpaidReservationsSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelUnpaidReservations" />
+  </wsdl:message>
+  <wsdl:message name="CancelUnpaidReservationsSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelUnpaidReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionCalendar" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSalesItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplateSalesItems" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSalesItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplateSalesItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSalesItemsSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplateSalesItemsSession" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSalesItemsSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplateSalesItemsSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceSessionLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceSessionLookup" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceSessionLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceSessionLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeatingAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeatingAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingTicketKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeatingTicketKey" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingTicketKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeatingTicketKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeatingTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetSeatingTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeatingTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsSeatTakenSoapIn">
+    <wsdl:part name="parameters" element="tns:IsSeatTaken" />
+  </wsdl:message>
+  <wsdl:message name="IsSeatTakenSoapOut">
+    <wsdl:part name="parameters" element="tns:IsSeatTakenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSessionSeatSoapIn">
+    <wsdl:part name="parameters" element="tns:ReserveSessionSeat" />
+  </wsdl:message>
+  <wsdl:message name="ReserveSessionSeatSoapOut">
+    <wsdl:part name="parameters" element="tns:ReserveSessionSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnreserveSessionSeatSoapIn">
+    <wsdl:part name="parameters" element="tns:UnreserveSessionSeat" />
+  </wsdl:message>
+  <wsdl:message name="UnreserveSessionSeatSoapOut">
+    <wsdl:part name="parameters" element="tns:UnreserveSessionSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveBookingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveBookings" />
+  </wsdl:message>
+  <wsdl:message name="SaveBookingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveBookingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeBookingStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeBookingStatus" />
+  </wsdl:message>
+  <wsdl:message name="ChangeBookingStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeBookingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMember" />
+  </wsdl:message>
+  <wsdl:message name="SaveMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelMember" />
+  </wsdl:message>
+  <wsdl:message name="CancelMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipSchemesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMembershipSchemes" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipSchemesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMembershipSchemesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipRenewalAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMembershipRenewalAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipRenewalAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMembershipRenewalAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipRenewalCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMembershipRenewalCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipRenewalCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMembershipRenewalCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipsForRenewalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMembershipsForRenewal" />
+  </wsdl:message>
+  <wsdl:message name="GetMembershipsForRenewalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMembershipsForRenewalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsValidMembershipSoapIn">
+    <wsdl:part name="parameters" element="tns:IsValidMembership" />
+  </wsdl:message>
+  <wsdl:message name="IsValidMembershipSoapOut">
+    <wsdl:part name="parameters" element="tns:IsValidMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardbyDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDashboardbyDept" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardbyDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDashboardbyDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardbyAnzSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDashboardbyAnz" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardbyAnzSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDashboardbyAnzResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardCompactSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDashboardCompact" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardCompactSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDashboardCompactResponse" />
+  </wsdl:message>
+  <wsdl:message name="BasicInternetPricesSoapIn">
+    <wsdl:part name="parameters" element="tns:BasicInternetPrices" />
+  </wsdl:message>
+  <wsdl:message name="BasicInternetPricesSoapOut">
+    <wsdl:part name="parameters" element="tns:BasicInternetPricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOrderStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOrderStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeOrderStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberExpiryResetSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberExpiryReset" />
+  </wsdl:message>
+  <wsdl:message name="MemberExpiryResetSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberExpiryResetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveOrderItemSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveOrderItem" />
+  </wsdl:message>
+  <wsdl:message name="SaveOrderItemSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveOrderItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStockAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetStockAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetModifiedImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetModifiedImage" />
+  </wsdl:message>
+  <wsdl:message name="GetModifiedImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetModifiedImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApplyTicketRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:ApplyTicketRules" />
+  </wsdl:message>
+  <wsdl:message name="ApplyTicketRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:ApplyTicketRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCalendarDatesByTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCalendarDatesByTemplate" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCalendarDatesByTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCalendarDatesByTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookingStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalysisCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalysisCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalysisCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalysisCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketsBySessionHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketsBySessionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketsBySessionHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketsBySessionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdditionalSessionLegsSoapIn">
+    <wsdl:part name="parameters" element="tns:AdditionalSessionLegs" />
+  </wsdl:message>
+  <wsdl:message name="AdditionalSessionLegsSoapOut">
+    <wsdl:part name="parameters" element="tns:AdditionalSessionLegsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomer" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMemberCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateMemberCard" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMemberCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateMemberCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="UniqueVoucherReserveSoapIn">
+    <wsdl:part name="parameters" element="tns:UniqueVoucherReserve" />
+  </wsdl:message>
+  <wsdl:message name="UniqueVoucherReserveSoapOut">
+    <wsdl:part name="parameters" element="tns:UniqueVoucherReserveResponse" />
+  </wsdl:message>
+  <wsdl:message name="UniqueVoucherUnreserveSoapIn">
+    <wsdl:part name="parameters" element="tns:UniqueVoucherUnreserve" />
+  </wsdl:message>
+  <wsdl:message name="UniqueVoucherUnreserveSoapOut">
+    <wsdl:part name="parameters" element="tns:UniqueVoucherUnreserveResponse" />
+  </wsdl:message>
+  <wsdl:message name="MOIVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:MOIVersion" />
+  </wsdl:message>
+  <wsdl:message name="MOIVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:MOIVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InternetVoucherAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:InternetVoucherAdmin" />
+  </wsdl:message>
+  <wsdl:message name="InternetVoucherAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:InternetVoucherAdminResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MeracOnlineInterfaceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthorisation">
+      <wsdl:input message="tns:TestAuthorisationSoapIn" />
+      <wsdl:output message="tns:TestAuthorisationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExtractSiteData">
+      <wsdl:input message="tns:ExtractSiteDataSoapIn" />
+      <wsdl:output message="tns:ExtractSiteDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelUnpaidReservations">
+      <wsdl:input message="tns:CancelUnpaidReservationsSoapIn" />
+      <wsdl:output message="tns:CancelUnpaidReservationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionAvailability">
+      <wsdl:input message="tns:GetSessionAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetSessionAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCalendar">
+      <wsdl:input message="tns:GetSessionCalendarSoapIn" />
+      <wsdl:output message="tns:GetSessionCalendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItems">
+      <wsdl:input message="tns:GetTemplateSalesItemsSoapIn" />
+      <wsdl:output message="tns:GetTemplateSalesItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItemsSession">
+      <wsdl:input message="tns:GetTemplateSalesItemsSessionSoapIn" />
+      <wsdl:output message="tns:GetTemplateSalesItemsSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceSessionLookup">
+      <wsdl:input message="tns:GetResourceSessionLookupSoapIn" />
+      <wsdl:output message="tns:GetResourceSessionLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingAvailability">
+      <wsdl:input message="tns:GetSeatingAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetSeatingAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTicketKey">
+      <wsdl:input message="tns:GetSeatingTicketKeySoapIn" />
+      <wsdl:output message="tns:GetSeatingTicketKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTickets">
+      <wsdl:input message="tns:GetSeatingTicketsSoapIn" />
+      <wsdl:output message="tns:GetSeatingTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsSeatTaken">
+      <wsdl:input message="tns:IsSeatTakenSoapIn" />
+      <wsdl:output message="tns:IsSeatTakenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSessionSeat">
+      <wsdl:input message="tns:ReserveSessionSeatSoapIn" />
+      <wsdl:output message="tns:ReserveSessionSeatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnreserveSessionSeat">
+      <wsdl:input message="tns:UnreserveSessionSeatSoapIn" />
+      <wsdl:output message="tns:UnreserveSessionSeatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookings">
+      <wsdl:input message="tns:SaveBookingsSoapIn" />
+      <wsdl:output message="tns:SaveBookingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBookingStatus">
+      <wsdl:input message="tns:ChangeBookingStatusSoapIn" />
+      <wsdl:output message="tns:ChangeBookingStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMember">
+      <wsdl:input message="tns:SaveMemberSoapIn" />
+      <wsdl:output message="tns:SaveMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMember">
+      <wsdl:input message="tns:CancelMemberSoapIn" />
+      <wsdl:output message="tns:CancelMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipSchemes">
+      <wsdl:input message="tns:GetMembershipSchemesSoapIn" />
+      <wsdl:output message="tns:GetMembershipSchemesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalAddress">
+      <wsdl:input message="tns:GetMembershipRenewalAddressSoapIn" />
+      <wsdl:output message="tns:GetMembershipRenewalAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalCustomer">
+      <wsdl:input message="tns:GetMembershipRenewalCustomerSoapIn" />
+      <wsdl:output message="tns:GetMembershipRenewalCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipsForRenewal">
+      <wsdl:input message="tns:GetMembershipsForRenewalSoapIn" />
+      <wsdl:output message="tns:GetMembershipsForRenewalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidMembership">
+      <wsdl:input message="tns:IsValidMembershipSoapIn" />
+      <wsdl:output message="tns:IsValidMembershipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyDept">
+      <wsdl:input message="tns:GetDashboardbyDeptSoapIn" />
+      <wsdl:output message="tns:GetDashboardbyDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyAnz">
+      <wsdl:input message="tns:GetDashboardbyAnzSoapIn" />
+      <wsdl:output message="tns:GetDashboardbyAnzSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardCompact">
+      <wsdl:input message="tns:GetDashboardCompactSoapIn" />
+      <wsdl:output message="tns:GetDashboardCompactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BasicInternetPrices">
+      <wsdl:input message="tns:BasicInternetPricesSoapIn" />
+      <wsdl:output message="tns:BasicInternetPricesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderStatus">
+      <wsdl:input message="tns:ChangeOrderStatusSoapIn" />
+      <wsdl:output message="tns:ChangeOrderStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberExpiryReset">
+      <wsdl:input message="tns:MemberExpiryResetSoapIn" />
+      <wsdl:output message="tns:MemberExpiryResetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrderItem">
+      <wsdl:input message="tns:SaveOrderItemSoapIn" />
+      <wsdl:output message="tns:SaveOrderItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAvailability">
+      <wsdl:input message="tns:GetStockAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetStockAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedImage">
+      <wsdl:input message="tns:GetModifiedImageSoapIn" />
+      <wsdl:output message="tns:GetModifiedImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyTicketRules">
+      <wsdl:input message="tns:ApplyTicketRulesSoapIn" />
+      <wsdl:output message="tns:ApplyTicketRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCalendarDatesByTemplate">
+      <wsdl:input message="tns:GetAvailableCalendarDatesByTemplateSoapIn" />
+      <wsdl:output message="tns:GetAvailableCalendarDatesByTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingStatus">
+      <wsdl:input message="tns:GetBookingStatusSoapIn" />
+      <wsdl:output message="tns:GetBookingStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysisCodes">
+      <wsdl:input message="tns:GetAnalysisCodesSoapIn" />
+      <wsdl:output message="tns:GetAnalysisCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsBySessionHeader">
+      <wsdl:input message="tns:GetTicketsBySessionHeaderSoapIn" />
+      <wsdl:output message="tns:GetTicketsBySessionHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalSessionLegs">
+      <wsdl:input message="tns:AdditionalSessionLegsSoapIn" />
+      <wsdl:output message="tns:AdditionalSessionLegsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:input message="tns:AddCustomerSoapIn" />
+      <wsdl:output message="tns:AddCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomer">
+      <wsdl:input message="tns:RetrieveCustomerSoapIn" />
+      <wsdl:output message="tns:RetrieveCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberCard">
+      <wsdl:input message="tns:ValidateMemberCardSoapIn" />
+      <wsdl:output message="tns:ValidateMemberCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherReserve">
+      <wsdl:input message="tns:UniqueVoucherReserveSoapIn" />
+      <wsdl:output message="tns:UniqueVoucherReserveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherUnreserve">
+      <wsdl:input message="tns:UniqueVoucherUnreserveSoapIn" />
+      <wsdl:output message="tns:UniqueVoucherUnreserveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MOIVersion">
+      <wsdl:input message="tns:MOIVersionSoapIn" />
+      <wsdl:output message="tns:MOIVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InternetVoucherAdmin">
+      <wsdl:input message="tns:InternetVoucherAdminSoapIn" />
+      <wsdl:output message="tns:InternetVoucherAdminSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MeracOnlineInterfaceSoap" type="tns:MeracOnlineInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://merac.co.uk/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthorisation">
+      <soap:operation soapAction="http://merac.co.uk/TestAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExtractSiteData">
+      <soap:operation soapAction="http://merac.co.uk/ExtractSiteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelUnpaidReservations">
+      <soap:operation soapAction="http://merac.co.uk/CancelUnpaidReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionAvailability">
+      <soap:operation soapAction="http://merac.co.uk/GetSessionAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCalendar">
+      <soap:operation soapAction="http://merac.co.uk/GetSessionCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItems">
+      <soap:operation soapAction="http://merac.co.uk/GetTemplateSalesItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItemsSession">
+      <soap:operation soapAction="http://merac.co.uk/GetTemplateSalesItemsSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceSessionLookup">
+      <soap:operation soapAction="http://merac.co.uk/GetResourceSessionLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingAvailability">
+      <soap:operation soapAction="http://merac.co.uk/GetSeatingAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTicketKey">
+      <soap:operation soapAction="http://merac.co.uk/GetSeatingTicketKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTickets">
+      <soap:operation soapAction="http://merac.co.uk/GetSeatingTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsSeatTaken">
+      <soap:operation soapAction="http://merac.co.uk/IsSeatTaken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSessionSeat">
+      <soap:operation soapAction="http://merac.co.uk/ReserveSessionSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnreserveSessionSeat">
+      <soap:operation soapAction="http://merac.co.uk/UnreserveSessionSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookings">
+      <soap:operation soapAction="http://merac.co.uk/SaveBookings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBookingStatus">
+      <soap:operation soapAction="http://merac.co.uk/ChangeBookingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMember">
+      <soap:operation soapAction="http://merac.co.uk/SaveMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMember">
+      <soap:operation soapAction="http://merac.co.uk/CancelMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipSchemes">
+      <soap:operation soapAction="http://merac.co.uk/GetMembershipSchemes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalAddress">
+      <soap:operation soapAction="http://merac.co.uk/GetMembershipRenewalAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalCustomer">
+      <soap:operation soapAction="http://merac.co.uk/GetMembershipRenewalCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipsForRenewal">
+      <soap:operation soapAction="http://merac.co.uk/GetMembershipsForRenewal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidMembership">
+      <soap:operation soapAction="http://merac.co.uk/IsValidMembership" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyDept">
+      <soap:operation soapAction="http://merac.co.uk/GetDashboardbyDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyAnz">
+      <soap:operation soapAction="http://merac.co.uk/GetDashboardbyAnz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardCompact">
+      <soap:operation soapAction="http://merac.co.uk/GetDashboardCompact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BasicInternetPrices">
+      <soap:operation soapAction="http://merac.co.uk/BasicInternetPrices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderStatus">
+      <soap:operation soapAction="http://merac.co.uk/ChangeOrderStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberExpiryReset">
+      <soap:operation soapAction="http://merac.co.uk/MemberExpiryReset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrderItem">
+      <soap:operation soapAction="http://merac.co.uk/SaveOrderItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAvailability">
+      <soap:operation soapAction="http://merac.co.uk/GetStockAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedImage">
+      <soap:operation soapAction="http://merac.co.uk/GetModifiedImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyTicketRules">
+      <soap:operation soapAction="http://merac.co.uk/ApplyTicketRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCalendarDatesByTemplate">
+      <soap:operation soapAction="http://merac.co.uk/GetAvailableCalendarDatesByTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingStatus">
+      <soap:operation soapAction="http://merac.co.uk/GetBookingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysisCodes">
+      <soap:operation soapAction="http://merac.co.uk/GetAnalysisCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsBySessionHeader">
+      <soap:operation soapAction="http://merac.co.uk/GetTicketsBySessionHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalSessionLegs">
+      <soap:operation soapAction="http://merac.co.uk/AdditionalSessionLegs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://merac.co.uk/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://merac.co.uk/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomer">
+      <soap:operation soapAction="http://merac.co.uk/RetrieveCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberCard">
+      <soap:operation soapAction="http://merac.co.uk/ValidateMemberCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherReserve">
+      <soap:operation soapAction="http://merac.co.uk/UniqueVoucherReserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherUnreserve">
+      <soap:operation soapAction="http://merac.co.uk/UniqueVoucherUnreserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MOIVersion">
+      <soap:operation soapAction="http://merac.co.uk/MOIVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InternetVoucherAdmin">
+      <soap:operation soapAction="http://merac.co.uk/InternetVoucherAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeracOnlineInterfaceSoap12" type="tns:MeracOnlineInterfaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://merac.co.uk/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthorisation">
+      <soap12:operation soapAction="http://merac.co.uk/TestAuthorisation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExtractSiteData">
+      <soap12:operation soapAction="http://merac.co.uk/ExtractSiteData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelUnpaidReservations">
+      <soap12:operation soapAction="http://merac.co.uk/CancelUnpaidReservations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionAvailability">
+      <soap12:operation soapAction="http://merac.co.uk/GetSessionAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCalendar">
+      <soap12:operation soapAction="http://merac.co.uk/GetSessionCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItems">
+      <soap12:operation soapAction="http://merac.co.uk/GetTemplateSalesItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateSalesItemsSession">
+      <soap12:operation soapAction="http://merac.co.uk/GetTemplateSalesItemsSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceSessionLookup">
+      <soap12:operation soapAction="http://merac.co.uk/GetResourceSessionLookup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingAvailability">
+      <soap12:operation soapAction="http://merac.co.uk/GetSeatingAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTicketKey">
+      <soap12:operation soapAction="http://merac.co.uk/GetSeatingTicketKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeatingTickets">
+      <soap12:operation soapAction="http://merac.co.uk/GetSeatingTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsSeatTaken">
+      <soap12:operation soapAction="http://merac.co.uk/IsSeatTaken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveSessionSeat">
+      <soap12:operation soapAction="http://merac.co.uk/ReserveSessionSeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnreserveSessionSeat">
+      <soap12:operation soapAction="http://merac.co.uk/UnreserveSessionSeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookings">
+      <soap12:operation soapAction="http://merac.co.uk/SaveBookings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBookingStatus">
+      <soap12:operation soapAction="http://merac.co.uk/ChangeBookingStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMember">
+      <soap12:operation soapAction="http://merac.co.uk/SaveMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMember">
+      <soap12:operation soapAction="http://merac.co.uk/CancelMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipSchemes">
+      <soap12:operation soapAction="http://merac.co.uk/GetMembershipSchemes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalAddress">
+      <soap12:operation soapAction="http://merac.co.uk/GetMembershipRenewalAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipRenewalCustomer">
+      <soap12:operation soapAction="http://merac.co.uk/GetMembershipRenewalCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembershipsForRenewal">
+      <soap12:operation soapAction="http://merac.co.uk/GetMembershipsForRenewal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidMembership">
+      <soap12:operation soapAction="http://merac.co.uk/IsValidMembership" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyDept">
+      <soap12:operation soapAction="http://merac.co.uk/GetDashboardbyDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardbyAnz">
+      <soap12:operation soapAction="http://merac.co.uk/GetDashboardbyAnz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardCompact">
+      <soap12:operation soapAction="http://merac.co.uk/GetDashboardCompact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BasicInternetPrices">
+      <soap12:operation soapAction="http://merac.co.uk/BasicInternetPrices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderStatus">
+      <soap12:operation soapAction="http://merac.co.uk/ChangeOrderStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberExpiryReset">
+      <soap12:operation soapAction="http://merac.co.uk/MemberExpiryReset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrderItem">
+      <soap12:operation soapAction="http://merac.co.uk/SaveOrderItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAvailability">
+      <soap12:operation soapAction="http://merac.co.uk/GetStockAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedImage">
+      <soap12:operation soapAction="http://merac.co.uk/GetModifiedImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyTicketRules">
+      <soap12:operation soapAction="http://merac.co.uk/ApplyTicketRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCalendarDatesByTemplate">
+      <soap12:operation soapAction="http://merac.co.uk/GetAvailableCalendarDatesByTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingStatus">
+      <soap12:operation soapAction="http://merac.co.uk/GetBookingStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysisCodes">
+      <soap12:operation soapAction="http://merac.co.uk/GetAnalysisCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsBySessionHeader">
+      <soap12:operation soapAction="http://merac.co.uk/GetTicketsBySessionHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalSessionLegs">
+      <soap12:operation soapAction="http://merac.co.uk/AdditionalSessionLegs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap12:operation soapAction="http://merac.co.uk/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="http://merac.co.uk/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomer">
+      <soap12:operation soapAction="http://merac.co.uk/RetrieveCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberCard">
+      <soap12:operation soapAction="http://merac.co.uk/ValidateMemberCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherReserve">
+      <soap12:operation soapAction="http://merac.co.uk/UniqueVoucherReserve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniqueVoucherUnreserve">
+      <soap12:operation soapAction="http://merac.co.uk/UniqueVoucherUnreserve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MOIVersion">
+      <soap12:operation soapAction="http://merac.co.uk/MOIVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InternetVoucherAdmin">
+      <soap12:operation soapAction="http://merac.co.uk/InternetVoucherAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MeracOnlineInterface">
+    <wsdl:port name="MeracOnlineInterfaceSoap" binding="tns:MeracOnlineInterfaceSoap">
+      <soap:address location="http://195.149.0.138:22221/MeracOnlineInterface/MeracOnlineInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MeracOnlineInterfaceSoap12" binding="tns:MeracOnlineInterfaceSoap12">
+      <soap12:address location="http://195.149.0.138:22221/MeracOnlineInterface/MeracOnlineInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
